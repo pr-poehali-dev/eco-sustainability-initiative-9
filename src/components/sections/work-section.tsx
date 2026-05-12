@@ -10,11 +10,11 @@ export function WorkSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
+          className={`mb-5 transition-all duration-700 md:mb-8 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
-          <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h2 className="mb-1 font-sans text-3xl font-light tracking-tight text-foreground md:text-4xl lg:text-5xl">
             Площадки
           </h2>
           <p className="font-mono text-sm text-foreground/60 md:text-base">/ Две рекомендуемые локации · Екатеринбург</p>

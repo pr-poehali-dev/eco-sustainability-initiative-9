@@ -39,11 +39,11 @@ export function ContactSection() {
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:gap-16 lg:gap-24">
           <div className="flex flex-col justify-center">
             <div
-              className={`mb-6 transition-all duration-700 md:mb-12 ${
+              className={`mb-5 transition-all duration-700 md:mb-7 ${
                 isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
               }`}
             >
-              <h2 className="mb-2 font-sans text-4xl font-light leading-[1.05] tracking-tight text-foreground md:mb-3 md:text-7xl lg:text-8xl">
+              <h2 className="mb-1 font-sans text-3xl font-light leading-[1.05] tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 Обсудим
                 <br />
                 детали
