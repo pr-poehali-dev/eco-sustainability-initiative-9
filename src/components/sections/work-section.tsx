@@ -17,78 +17,66 @@ export function WorkSection() {
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Площадки
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Две рекомендуемые локации</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Две рекомендуемые локации · Екатеринбург</p>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-0">
           {[
             {
               number: "01",
               title: "МТС Live Холл",
-              category: "Приоритетная рекомендация · бульвар Экспо, 2",
-              year: "до 5000 чел.",
+              category: "Приоритет · бульвар Экспо, 2",
+              detail: "Трансформируемый зал от 1 500 до 5 000 зрителей. Дополнительные выставочные и открытые площади до 60 000 м². Полный цикл мероприятий без дополнительной логистики — одна площадка закрывает весь день.",
+              cap: "до 5 000 чел.",
               direction: "left",
             },
             {
               number: "02",
               title: "УЦРД Горького",
               category: "Альтернатива · ул. Горького, 4а",
-              year: "1500+ чел.",
+              detail: "Атриумное пространство площадью более 7 000 м², рассчитано на 1 500+ гостей. Центр города, современный архитектурный дизайн. Подходит для камерного вечернего формата.",
+              cap: "1 500+ чел.",
               direction: "right",
             },
             {
               number: "03",
               title: "Офис банка",
               category: "Утренняя часть · 08:00–12:00",
-              year: "1500 чел.",
+              detail: "Привычное и комфортное пространство для сотрудников. Оформление в едином стиле: входная арка из живых растений, брендированный ресепшн, живые цветы и гирлянды тёплого белого света в open space.",
+              cap: "1 500 чел.",
               direction: "left",
             },
-          ].map((project, i) => (
-            <VenueCard key={i} project={project} index={i} isVisible={isVisible} />
+          ].map((item, i) => (
+            <div
+              key={i}
+              className={`group border-b border-foreground/10 py-7 transition-all duration-700 hover:border-foreground/20 md:py-9 ${
+                isVisible
+                  ? "translate-x-0 opacity-100"
+                  : item.direction === "left"
+                    ? "-translate-x-16 opacity-0"
+                    : "translate-x-16 opacity-0"
+              }`}
+              style={{ transitionDelay: `${i * 150}ms` }}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4 md:gap-8">
+                  <span className="mt-1 font-mono text-sm text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-base">
+                    {item.number}
+                  </span>
+                  <div>
+                    <h3 className="mb-1 font-sans text-2xl font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-3xl lg:text-4xl">
+                      {item.title}
+                    </h3>
+                    <p className="mb-2 font-mono text-xs text-foreground/50 md:text-sm">{item.category}</p>
+                    <p className="max-w-2xl text-sm leading-relaxed text-foreground/70 md:text-base">{item.detail}</p>
+                  </div>
+                </div>
+                <span className="shrink-0 font-mono text-xs text-foreground/30 md:text-sm">{item.cap}</span>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
-
-function VenueCard({
-  project,
-  index,
-  isVisible,
-}: {
-  project: { number: string; title: string; category: string; year: string; direction: string }
-  index: number
-  isVisible: boolean
-}) {
-  const getRevealClass = () => {
-    if (!isVisible) {
-      return project.direction === "left" ? "-translate-x-16 opacity-0" : "translate-x-16 opacity-0"
-    }
-    return "translate-x-0 opacity-100"
-  }
-
-  return (
-    <div
-      className={`group flex items-center justify-between border-b border-foreground/10 py-6 transition-all duration-700 hover:border-foreground/20 md:py-8 ${getRevealClass()}`}
-      style={{
-        transitionDelay: `${index * 150}ms`,
-        marginLeft: index % 2 === 0 ? "0" : "auto",
-        maxWidth: index % 2 === 0 ? "85%" : "90%",
-      }}
-    >
-      <div className="flex items-baseline gap-4 md:gap-8">
-        <span className="font-mono text-sm text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-base">
-          {project.number}
-        </span>
-        <div>
-          <h3 className="mb-1 font-sans text-2xl font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-3xl lg:text-4xl">
-            {project.title}
-          </h3>
-          <p className="font-mono text-xs text-foreground/50 md:text-sm">{project.category}</p>
-        </div>
-      </div>
-      <span className="font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
-    </div>
   )
 }

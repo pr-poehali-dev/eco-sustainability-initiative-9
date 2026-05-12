@@ -3,10 +3,28 @@ import { CustomCursor } from "@/components/custom-cursor"
 import { GrainOverlay } from "@/components/grain-overlay"
 import { WorkSection } from "@/components/sections/work-section"
 import { ServicesSection } from "@/components/sections/services-section"
+import { MorningSection } from "@/components/sections/morning-section"
+import { MerchSection } from "@/components/sections/merch-section"
+import { EveningSection } from "@/components/sections/evening-section"
 import { AboutSection } from "@/components/sections/about-section"
+import { AdvantagesSection } from "@/components/sections/advantages-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { MagneticButton } from "@/components/magnetic-button"
 import { useRef, useEffect, useState } from "react"
+
+const TOTAL_SECTIONS = 9
+
+const NAV_ITEMS = [
+  "Главная",
+  "Концепция",
+  "Площадки",
+  "Утро",
+  "Сувениры",
+  "Вечер",
+  "Смета",
+  "Преимущества",
+  "Контакты",
+]
 
 export default function Index() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -77,7 +95,7 @@ export default function Index() {
       const deltaX = touchStartX.current - touchEndX
 
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
-        if (deltaY > 0 && currentSection < 4) {
+        if (deltaY > 0 && currentSection < TOTAL_SECTIONS - 1) {
           scrollToSection(currentSection + 1)
         } else if (deltaY < 0 && currentSection > 0) {
           scrollToSection(currentSection - 1)
@@ -147,7 +165,7 @@ export default function Index() {
         const scrollLeft = scrollContainerRef.current.scrollLeft
         const newSection = Math.round(scrollLeft / sectionWidth)
 
-        if (newSection !== currentSection && newSection >= 0 && newSection <= 4) {
+        if (newSection !== currentSection && newSection >= 0 && newSection < TOTAL_SECTIONS) {
           setCurrentSection(newSection)
         }
 
@@ -220,18 +238,18 @@ export default function Index() {
           className="flex items-center gap-2 transition-transform hover:scale-105"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/15 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-foreground/25">
-            <span className="font-sans text-xl font-bold text-foreground">Б</span>
+            <span className="font-sans text-xl font-bold text-foreground">К</span>
           </div>
-          <span className="font-sans text-xl font-semibold tracking-tight text-foreground">Банк 2026</span>
+          <span className="font-sans text-xl font-semibold tracking-tight text-foreground">Код будущего</span>
         </button>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {["Концепция", "Площадки", "Программа", "Смета", "Контакты"].map((item, index) => (
+        <div className="hidden items-center gap-6 md:flex">
+          {NAV_ITEMS.map((item, index) => (
             <button
               key={item}
               onClick={() => scrollToSection(index)}
-              className={`group relative font-sans text-sm font-medium transition-colors ${
-                currentSection === index ? "text-foreground" : "text-foreground/80 hover:text-foreground"
+              className={`group relative font-sans text-xs font-medium transition-colors ${
+                currentSection === index ? "text-foreground" : "text-foreground/70 hover:text-foreground"
               }`}
             >
               {item}
@@ -244,7 +262,7 @@ export default function Index() {
           ))}
         </div>
 
-        <MagneticButton variant="secondary" onClick={() => scrollToSection(4)}>
+        <MagneticButton variant="secondary" onClick={() => scrollToSection(8)}>
           Связаться
         </MagneticButton>
       </nav>
@@ -257,7 +275,7 @@ export default function Index() {
         }`}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {/* Hero Section */}
+        {/* Слайд 1 — Титульный */}
         <section className="flex min-h-screen w-screen shrink-0 flex-col justify-end px-6 pb-16 pt-24 md:px-12 md:pb-24">
           <div className="max-w-3xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
@@ -265,23 +283,31 @@ export default function Index() {
             </div>
             <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-6xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
               <span className="text-balance">
-                Банк будущего
+                Код будущего
               </span>
             </h1>
-            <p className="mb-8 max-w-xl animate-in fade-in slide-in-from-bottom-4 text-lg leading-relaxed text-foreground/90 duration-1000 delay-200 md:text-xl">
+            <p className="mb-4 max-w-xl animate-in fade-in slide-in-from-bottom-4 text-lg leading-relaxed text-foreground/90 duration-1000 delay-200 md:text-xl">
               <span className="text-pretty">
-                Организация утренних встреч и основного мероприятия для сотрудников банка. До 1500 участников. Формат «2-в-1»: утро в офисе + вечер на внешней площадке.
+                Организация корпоративного мероприятия для сотрудников банка. До 1 500 участников. Формат «2-в-1»: утро в офисе + вечер на внешней площадке.
               </span>
             </p>
+            <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
+              <div className="flex flex-wrap gap-6 text-sm text-foreground/70">
+                <span><span className="font-mono text-foreground/40 mr-2">Клиент</span>Банк</span>
+                <span><span className="font-mono text-foreground/40 mr-2">Аудитория</span>Сотрудники банка</span>
+                <span><span className="font-mono text-foreground/40 mr-2">Участников</span>до 1 500 чел.</span>
+                <span><span className="font-mono text-foreground/40 mr-2">Дата</span>2026 год</span>
+              </div>
+            </div>
             <div className="flex animate-in fade-in slide-in-from-bottom-4 flex-col gap-4 duration-1000 delay-300 sm:flex-row sm:items-center">
               <MagneticButton
                 size="lg"
                 variant="primary"
-                onClick={() => scrollToSection(3)}
+                onClick={() => scrollToSection(6)}
               >
                 Смотреть смету
               </MagneticButton>
-              <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection(2)}>
+              <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection(3)}>
                 Программа дня
               </MagneticButton>
             </div>
@@ -297,9 +323,21 @@ export default function Index() {
           </div>
         </section>
 
-        <WorkSection />
+        {/* Слайд 2 — Концепция */}
         <ServicesSection />
+        {/* Слайд 3 — Площадки */}
+        <WorkSection />
+        {/* Слайд 4 — Утро */}
+        <MorningSection />
+        {/* Слайд 5 — Сувениры */}
+        <MerchSection />
+        {/* Слайд 6 — Вечер */}
+        <EveningSection />
+        {/* Слайд 7 — Смета */}
         <AboutSection scrollToSection={scrollToSection} />
+        {/* Слайд 8 — Преимущества */}
+        <AdvantagesSection scrollToSection={scrollToSection} />
+        {/* Слайд 9 — Контакты */}
         <ContactSection />
       </div>
 
