@@ -53,7 +53,7 @@ export function ContactSection() {
 
             <div className="space-y-4 md:space-y-8">
               <a
-                href="mailto:info@flowrise.dev"
+                href="mailto:office@brig-e.ru"
                 className={`group block transition-all duration-700 ${
                   isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
                 }`}
@@ -64,7 +64,7 @@ export function ContactSection() {
                   <span className="font-mono text-xs text-foreground/60">Email</span>
                 </div>
                 <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
-                  events@bank2026.ru
+                  office@brig-e.ru
                 </p>
               </a>
 
@@ -76,9 +76,9 @@ export function ContactSection() {
               >
                 <div className="mb-1 flex items-center gap-2">
                   <MapPin className="h-3 w-3 text-foreground/60" />
-                  <span className="font-mono text-xs text-foreground/60">Локация</span>
+                  <span className="font-mono text-xs text-foreground/60">Адрес</span>
                 </div>
-                <p className="text-base text-foreground md:text-2xl">Екатеринбург, 2026</p>
+                <p className="text-base text-foreground md:text-2xl">г. Екатеринбург, ул. Белинского, 76</p>
               </div>
 
               <div
@@ -116,7 +116,7 @@ export function ContactSection() {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   className="w-full border-b border-foreground/30 bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/50 focus:outline-none md:py-2 md:text-base"
-                  placeholder="Иван Петров, HR-директор"
+                  placeholder="Пащенко Полина, организатор"
                 />
               </div>
 
@@ -133,7 +133,7 @@ export function ContactSection() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   className="w-full border-b border-foreground/30 bg-transparent py-1.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-foreground/50 focus:outline-none md:py-2 md:text-base"
-                  placeholder="ivan@bank.ru"
+                  placeholder="polina.pashenko.02@mail.ru"
                 />
               </div>
 
