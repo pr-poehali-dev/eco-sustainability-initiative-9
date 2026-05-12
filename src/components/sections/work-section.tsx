@@ -15,36 +15,36 @@ export function WorkSection() {
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Проекты
+            Площадки
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Избранные работы</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Две рекомендуемые локации</p>
         </div>
 
         <div className="space-y-6 md:space-y-8">
           {[
             {
               number: "01",
-              title: "ТехноСтарт",
-              category: "Корпоративный портал",
-              year: "2024",
+              title: "МТС Live Холл",
+              category: "Приоритетная рекомендация · бульвар Экспо, 2",
+              year: "до 5000 чел.",
               direction: "left",
             },
             {
               number: "02",
-              title: "АльфаТрейд",
-              category: "Финтех платформа",
-              year: "2024",
+              title: "УЦРД Горького",
+              category: "Альтернатива · ул. Горького, 4а",
+              year: "1500+ чел.",
               direction: "right",
             },
             {
               number: "03",
-              title: "МедиаПульс",
-              category: "Медиа сервис",
-              year: "2023",
+              title: "Офис банка",
+              category: "Утренняя часть · 08:00–12:00",
+              year: "1500 чел.",
               direction: "left",
             },
           ].map((project, i) => (
-            <ProjectCard key={i} project={project} index={i} isVisible={isVisible} />
+            <VenueCard key={i} project={project} index={i} isVisible={isVisible} />
           ))}
         </div>
       </div>
@@ -52,7 +52,7 @@ export function WorkSection() {
   )
 }
 
-function ProjectCard({
+function VenueCard({
   project,
   index,
   isVisible,

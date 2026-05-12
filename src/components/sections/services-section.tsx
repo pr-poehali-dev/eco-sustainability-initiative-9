@@ -15,31 +15,31 @@ export function ServicesSection() {
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Услуги
+            Программа
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Наши компетенции</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Формат «2-в-1»: утро + вечер</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
           {[
             {
-              title: "Веб-разработка",
-              description: "Создание современных веб-приложений любой сложности",
+              title: "Утренняя часть",
+              description: "08:00–12:00 · офис банка. Кофе-брейк, активности (VR, нейрографика, квиз, кикер), сувенирные наборы, фотозона.",
               direction: "top",
             },
             {
-              title: "UI/UX Дизайн",
-              description: "Проектирование удобных и красивых интерфейсов",
+              title: "Welcome-зона",
+              description: "Хостес в корпоративной форме, безалкогольное игристое, живое джазовое трио, LED-арка «Добро пожаловать в будущее!».",
               direction: "right",
             },
             {
-              title: "Мобильные приложения",
-              description: "Кроссплатформенная разработка для iOS и Android",
+              title: "Основное мероприятие",
+              description: "13:00–20:00 · внешняя площадка. Фуршет на 1500 чел., DJ-сет, кавер-группа, караоке-будки, неоновая фотозона.",
               direction: "left",
             },
             {
-              title: "Консалтинг",
-              description: "Техническая экспертиза и стратегическое планирование",
+              title: "Концепция «Код будущего»",
+              description: "Четыре «кода» успеха: Команда · Технологии · Доверие · Движение. Единый дизайн-код: корпоративные цвета + серебро + зелёный акцент.",
               direction: "bottom",
             },
           ].map((service, i) => (
